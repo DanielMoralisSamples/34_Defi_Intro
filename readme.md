@@ -1,0 +1,31 @@
+# DeFi Intro Full Course
+- This repository contains examples for a Lending Pool and a Decentralized Exchange.
+- The contracts are based in the project https://github.com/smartcontractkit/defi-minimal of Patrick from chainlink, slightly modified.
+- All of these contracts are for educational purposes only and are not intended to be used in production code.
+## Lending Pool Instructions
+- Files needed
+    - Mock Oracle
+    - Aggregator V3 Interface to interact with the mock oracle
+    - Token this is to have a token to work with
+    - Lending Pool
+    - All files above should be in the same directory
+- Order of Deployment
+    - First deploy your token.
+    - Deploy the mock oracle, you will need to define a price in eth that the mock oracle will return.
+    - Deploy the lending pool
+    - In the lending pool whitelist your token. 
+        - This is done by calling the set allowed token function in the lending contract.
+        - for calling this function you will need the address in which your token and the mock oracle were deployed.
+## Decentralized Exchange Instructions
+- For details on the theory rewatch the video in moralis youtube channel or read. https://github.com/smartcontractkit/defi-minimal/tree/main/docs/uniswap-v1
+- Files needed
+    - Token this will be the token deposited against eth in the liquidity pool.
+    - Factory this contract is used to create liquidity pools.
+    - Exchange contract, this will be deployed by the Factory contract.
+    - All files above should be in the same directory
+- Order of Deployment
+    - First deploy the token
+    - Deploy the factory
+    - In the Factory contract call the create exchange function. This function takes the address of your contract as a parameter.
+        - The create exchange function returns the address of the created exchange.
+        - To interact with the liquidity pool you will need to create an exchange contract object at that address. The video shows how to do that in Remix.
